@@ -1,0 +1,14 @@
+# Core packages
+PyMuPDF                 # fitz (PDF processing)
+opencv-python           # cv2 (computer vision)
+numpy                   # Numerical computing
+python-dotenv           # Environment variables
+rapidfuzz               # Fuzzy string matching
+google-generativeai     # Gemini AI
+pandas                  # Data manipulation
+pytesseract             # OCR (requires Tesseract-OCR system install)
+PyYAML                  # YAML parsing
+
+# Indirect dependencies (usually auto-installed, but listed for clarity)
+Pillow                  # Image processing (for pytesseract)
+python-dateutil         # Date handling (for pandas)
