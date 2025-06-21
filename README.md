@@ -1,8 +1,8 @@
-markdown
-
 # Nitori Catalog Automation Tool
 
-![Automation](https://img.shields.io/badge/Type-Automation-blue) ![Python](https://img.shields.io/badge/Python-3.8%2B-green) ![License](https://img.shields.io/badge/License-MIT-orange)
+![Automation](https://img.shields.io/badge/Type-Automation-blue) 
+![Python](https://img.shields.io/badge/Python-3.8%2B-green) 
+![License](https://img.shields.io/badge/License-MIT-orange)
 
 ## Overview
 
@@ -10,80 +10,87 @@ This tool automates the processing of Nitori product catalogs by extracting prod
 
 ## Key Features
 
-- **Multi-engine OCR Processing**: Uses Gemini AI for primary OCR with Tesseract as a fallback
-- **Intelligent Data Matching**: Fuzzy matching algorithms to link extracted data with master records
-- **PDF Annotation**: Automatically annotates source PDFs with colored markers based on confidence levels
-- **Excel Integration**: Updates master Excel files with extracted data and layout references
-- **Confidence-based Processing**: Handles matches differently based on confidence scores
-- **Parallel Processing**: Utilizes multi-threading for efficient page processing
-- **Comprehensive Reporting**: Generates JSON results, Excel reports, and annotated PDFs
+- **Multi-engine OCR Processing**: Uses Gemini AI for primary OCR with Tesseract as a fallback  
+- **Intelligent Data Matching**: Fuzzy matching algorithms to link extracted data with master records  
+- **PDF Annotation**: Automatically annotates source PDFs with colored markers based on confidence levels  
+- **Excel Integration**: Updates master Excel files with extracted data and layout references  
+- **Confidence-based Processing**: Handles matches differently based on confidence scores  
+- **Parallel Processing**: Utilizes multi-threading for efficient page processing  
+- **Comprehensive Reporting**: Generates JSON results, Excel reports, and annotated PDFs  
 
 ## Prerequisites
 
 - Python 3.8+
 - Tesseract OCR installed (for fallback processing)
 - Google Gemini API key
-- Required Python packages (listed in requirements.txt)
+- Required Python packages (listed in `requirements.txt`)
 
 ## Installation
 
-1. Clone this repository: git clone https://github.com/chimboy19/-Nitori-Catalog-Automation-System
-   ```bash
+### 1. Clone this repository
 
+```bash
+git clone https://github.com/chimboy19/-Nitori-Catalog-Automation-System
+cd -Nitori-Catalog-Automation-System
+```
 
-## Install dependencies:
-## bash
+### 2. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-## Install Tesseract OCR:
+### 3. Install Tesseract OCR
 
-## Windows: Download installer from Tesseract GitHub
+#### Windows
+Download installer from [Tesseract GitHub](https://github.com/tesseract-ocr/tesseract)
 
-## Mac: Use Homebrew:bash
-
+#### Mac (using Homebrew)
+```bash
 brew install tesseract
-## Set your Gemini API key in .env file:
+```
+
+### 4. Set your Gemini API key
+
+Create a `.env` file in the root directory with the following content:
+
+```
 GEMINI_API_KEY=your_api_key_here
+```
 
 ## Usage
 
-Place PDF files in the input folder
+1. Place all input PDF files into the `input_pdfs/` folder  
+2. Place your master product list Excel file in the root directory  
+3. Run the automation script:
 
-Put the product list Excel file in the main directory
-
-## Run the tool:bash
+```bash
 python main.py
+```
 
 ## Customization
 
-## To adapt for different catalog formats:
+To adapt for different catalog layouts or company-specific formats:
 
-Modify the OCR_PROMPT to match your expected data structure
-
-Update REQUIRED_MASTER_COLS with your Excel column names
-
-Adjust matching logic in match_products() function
+- Edit the `OCR_PROMPT` to reflect the structure you expect in each catalog entry  
+- Change the `REQUIRED_MASTER_COLS` list to match your Excel's actual column headers  
+- Modify the `match_products()` function to tweak fuzzy matching logic
 
 ## Troubleshooting
 
-Check debug/nitori_automation.log for detailed error information
-
-Enable debug mode by setting logging level to DEBUG in code
-
-Verify Tesseract installation path if fallback OCR fails
-
-Ensure PDFs are clear scans with legible text
+- Review logs in `debug/nitori_automation.log` for detailed error tracing  
+- To enable verbose logging, set the logging level to `DEBUG` in the code  
+- If Tesseract fallback OCR fails, confirm the installation path and verify it’s accessible via command line  
+- For best results, use high-resolution and well-scanned PDF files
 
 ## Limitations
 
-Performance depends on PDF quality and layout complexity
-
-Non-standard catalog formats may require customization
-
-Very dense pages may overwhelm OCR processing
-
-Unable to handle PDF annotations (e.g., creating borders for product identification)
+- Output quality depends heavily on the input PDF clarity and layout consistency  
+- Unusual or inconsistent catalog designs may require manual configuration  
+- Pages with excessive density or complex design may reduce OCR accuracy  
+- Does not support visual PDF annotation with bounding boxes (e.g., drawing product areas)
 
 ## License
 
-This project is licensed under the MIT License. See LICENSE file for details.
+This project is licensed under the MIT License.  
+See the [LICENSE](LICENSE) file for details.
