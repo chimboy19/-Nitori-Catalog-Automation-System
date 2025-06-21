@@ -29,7 +29,7 @@ This tool automates the processing of Nitori product catalogs by extracting prod
 
 1. Clone this repository:
    ```bash
-git clone [repository-url]
+git clone https://github.com/chimboy19/-Nitori-Catalog-Automation-System
 
 ## Install dependencies:
 ## bash
